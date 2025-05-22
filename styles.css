@@ -1,0 +1,448 @@
+/* styles.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    background-image: url("Portfolio/curve.png");
+}
+
+header {
+    background-color: #0e0707;
+    color: white;
+    padding: 1rem 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color:white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+nav ul li a:hover {
+    color:  rgb(250, 1, 1); /* Tailwind's blue-700 */
+    transform: scale(1.05);
+}
+#home {
+    background-image: url('dar.png');
+    background-size: cover;       /* Ensures the image covers the whole section */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Optional: parallax-like effect */
+    min-height: 100vh;            /* Make section fill full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 20vh 0;
+}
+
+@keyframes slideBackAndForth {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.hero h1 {
+  display: inline-block;
+  animation: slideBackAndForth 4s ease-in-out infinite;
+  font-size: 4.5rem;          /* Bigger size */
+  font-weight: 700;           /* Bolder */
+  letter-spacing: 2px;        /* Spaced letters */
+  color: black;             /* Keep the green or change as you like */
+  text-shadow: 2px 2px 5px white; /* subtle shadow for depth */
+  -webkit-text-stroke: 2px white; /* Stroke color and thickness */
+  font-weight: 700;
+}
+
+.highlight {
+  color: white;                 /* Fill color */
+  -webkit-text-stroke: 2px black; /* Stroke color and thickness */
+  font-weight: 700;
+}
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero p {
+
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;          /* Bigger size */
+  font-weight: 700;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  text-shadow: 1px black;
+  animation: moveUpDown 4s ease-in-out infinite;
+  padding: 10px 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Background flow effect using a pseudo-element */
+.hero p::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(270deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+  animation: backgroundFlow 6s linear infinite;
+  z-index: -1;
+  border-radius: 8px;
+}
+
+/* Animate the gradient background moving left to right */
+@keyframes backgroundFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.cta-button {
+    background-color: #0e0707;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border-color: #1f1c2c;
+
+}
+
+.cta-button:hover {
+    color: #1f1c2c;
+    background-color: #0e0707;
+    border-color: black ;
+    
+}
+
+
+section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #1f1c2c		;
+}
+#about p {
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.highlight2 {
+  color: #2cda5b;
+  font-weight: bold;
+}
+#about p {
+  /* Add this to previous styles */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+#about .highlight2 {
+  color: #2cda5b;
+  font-weight: bold;
+}
+
+
+.project-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.project {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+
+    /* Add these for vertical alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.project img {
+    max-width: 100%;
+    border-radius: 8px;
+
+    /* Optional: Control height and keep aspect ratio */
+    max-height: 200px;
+    object-fit: contain;
+
+    /* Center image inside project block */
+    display: block;
+    margin: 0 auto;
+}
+.project-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input, form textarea {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #0e0707;
+    color: white;
+    border: 2px solid #1f1c2c;  /* visible border */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0e0707;
+    color: #1f1c2c;
+    border-color: black;  /* changes to black on hover */
+}
+
+
+footer {
+    background-color: #0e0707;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+ 
+hr {
+color: black;
+}
+/* Slider Container */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+}
+
+/* Carousel Container */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* Carousel Images */
+.carousel img {
+    border: 2px solid #333;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 70%;
+    cursor: pointer;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover Effect */
+.carousel img:hover {
+    transform: scale(1.05);
+    border-color: green;
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+}
+
+.slider-container {
+    background: linear-gradient(145deg, #0e0707, #1a1a1a);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+/* Navigation Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(145deg, #1a1a1a, #000000);
+    color: white;
+    border: 2px solid #444;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 12px 18px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Positioning */
+#prev {
+    left: 10px;
+}
+#next {
+    right: 10px;
+}
+
+/* Hover Effects */
+.nav-btn:hover {
+    background-color: red;
+    color: white;
+    border-color: red;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Button Positioning */
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+/* Project Content (Sliding Area) */
+.project-content {
+    display: flex;
+    transition: transform 0.6s ease; /* Smooth sliding animation */
+}
+
+/* Each Category (Takes Full Viewport Width) */
+.project-category {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.project-category h3{
+    color: white;
+}
+
+/* Project Gallery Layout */
+.project-gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Project Item */
+.project {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Image Styling */
+.project img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 2%;
+}
+
+/* Headings */
+h2{
+    font-size: 2rem;          /* Bigger size */
+  font-weight: 700;
+    text-align: center;
+    color: #0e0707;
+}
+h3 {
+    margin-bottom: 1%;
+    font-size: 1.4rem;          /* Bigger size */
+    font-weight: 700;
+    text-align: center;
+    color: #0e0707;
+}
+label{
+    color: white;
+}
+/* Modal styles */
+#imageModal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+#imageModal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+}
